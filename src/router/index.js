@@ -1,18 +1,26 @@
-import {createRouter, createWebHistory} from "vue-router";
+import VueRouter from "vue-router";
+import {Vue} from "vue";
 
-export const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
-        {
-            path: '/',
-            name: 'posts',
-            component: ()=> import("../src/components/PostsList.vue")
-        },
-        {
-            path: "/post/:id",
-            name: "post",
-            component: ()=> import("../src/components/PostDetail.vue")
-        }
+Vue.use(VueRouter);
 
-    ]
-})
+const routes = [
+
+    {
+        path: "/posts/:id",
+        name: "Post",
+        component: () => import("../components/PostDetail.vue"),
+    },
+    {
+        path: "/posts/",
+        name: "Posts",
+        component: () => import("../components/PostsList.vue"),
+    }
+];
+
+const router = new VueRouter({
+    mode: "history",
+    base: process.env.BASE_URL,
+    routes,
+});
+
+export default router;

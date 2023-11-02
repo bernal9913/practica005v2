@@ -12,20 +12,23 @@ export default {
     }
   },
   methods: {
-    getPosts() {
+    getPost() {
       let url = 'https://jsonplaceholder.typicode.com/posts/' + route.toString();
       fetch(url).then(response => response.json()).then(data => this.post = data)
     },
   },
   mounted() {
     // equivalencia al onload()
-    this.getPosts()
+    this.getPost()
   }
 };
 </script>
 
 <template>
-<h1>{{ post.title }}</h1>
+  <h1>{{ post.title }}</h1>
+  <h2>{{ post.userId }}</h2>
+  <p>{{ post.body}}</p>
+
 </template>
 
 <style scoped>
