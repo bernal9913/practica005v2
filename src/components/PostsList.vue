@@ -23,8 +23,8 @@
   <div>
     <div v-for="post in posts" :key="post.id">
       <h3>{{ post.id }}.- {{ post.title }}</h3>
-      <p>{{ post.body }}</p>
-      <a href="">leer post</a>
+      <!-- <p>{{ post.body }}</p> -->
+      <a href="/posts/{{ post.id }}">leer post</a>
     </div>
   </div>
 </template>
